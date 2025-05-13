@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h2>Create Appointment</h2>
+
+    <!-- Appointment Form -->
+    <form method="POST">
+        <div class="mb-3">
+            <label for="patient_id" class="form-label">Patient</label>
+            <select class="form-select" id="patient_id" name="patient_id" required>
+                <option value="" disabled selected>Select Patient</option>
+                {% for patient in patients %}
+                    <option value="{{ patient.id }}">{{ patient.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="doctor_id" class="form-label">Doctor</label>
+            <select class="form-select" id="doctor_id" name="doctor_id" required>
+                <option value="" disabled selected>Select Doctor</option>
+                {% for doctor in doctors %}
+                    <option value="{{ doctor.id }}">{{ doctor.name }} - {{ doctor.speciality }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="appointment_date" class="form-label">Appointment Date and Time</label>
+            <input type="datetime-local" class="form-control" id="appointment_date" name="date" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="notes" class="form-label">Notes</label>
+            <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Appointment</button>
+    </form>
+{% endblock %}

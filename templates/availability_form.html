@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set Availability</title>
+</head>
+<body>
+    <h2>Set Doctor Availability</h2>
+    <form action="/availability" method="post">
+        <label for="doctor_id">Doctor ID:</label>
+        <input type="number" name="doctor_id" required><br><br>
+
+        <label for="available_from">Available From:</label>
+        <input type="datetime-local" name="available_from" required><br><br>
+
+        <label for="available_to">Available To:</label>
+        <input type="datetime-local" name="available_to" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
